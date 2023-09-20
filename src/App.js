@@ -7,6 +7,8 @@ import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import PrivateComponent from './Component/PrivateComponent';
 import Login from './Component/Login';
 import AddProduct from './Component/AddProduct';
+import ProductList from './Component/ProductList';
+import UpdateProduct from './Component/UpdateProduct';
 
 function App() {
   return (
@@ -15,9 +17,9 @@ function App() {
 <Nav/>
       <Routes>
 <Route element={<PrivateComponent/>}>
-        <Route path='/' element={<h1>Product listing component</h1>}/>
+        <Route path='/' element={<ProductList/>}/>
         <Route path='/add' element={<h1>{<AddProduct/>}</h1>}/>
-        <Route path='/update' element={<h1>Product updating component</h1>}/>
+        <Route path='/update' element={<UpdateProduct/>}/>
         <Route path='/Profile' element={<h1>Profile component</h1>}/>
         <Route path='/Logout' element={<h1>Logout component</h1>}/>
         </Route>

@@ -14,19 +14,19 @@ const logout=()=>{
 
 
             <img className="logo"  src="https://img.freepik.com/free-vector/wellness-center-logo-template-gold-professional-design-vector_53876-136292.jpg" alt="logo"></img>
-            { auth? <ul>
-                <li><Link to="/">Product</Link></li>
-                <li><Link to="/add">Add Product</Link></li>
-                <li><Link to="/update">Update</Link></li>
-                <li><Link to="/Profile">Profile</Link></li>
+            { auth? <ul className="ul-nav">
+                <li className="li-nav"><Link to="/">Product</Link></li>
+                <li className="li-nav"><Link to="/add">Add Product</Link></li>
+                <li className="li-nav"><Link to="/update">Update</Link></li>
+                <li className="li-nav"><Link to="/Profile">Profile</Link></li>
                 
-                 <li><Link onClick={logout} to="/signup">Logout ({JSON.parse(auth).name})</Link></li>
+                 <li className="li-nav"><Link onClick={logout} to="/signup">Logout ({JSON.parse(auth).name})</Link></li>
                  </ul> 
                  : 
 
-                <ul className="right-nav">
-               <li> <Link to="/signup">Sign Up</Link> </li>
-               <li> <Link to="/login">login</Link></li>
+                <ul className="ul-nav right-nav">
+               <li className="li-nav"> <Link to="/signup">Sign Up</Link> </li>
+               <li className="li-nav"> <Link to="/login">login</Link></li>
                </ul>
 }
         </div>

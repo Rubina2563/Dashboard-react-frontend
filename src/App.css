@@ -1,9 +1,9 @@
-ul li{
+.li-nav{
   display: inline-block;
   padding: 10px;
   
 }
- ul{
+ .ul-nav{
   background-color: skyblue;
   
   padding: 5px;
@@ -67,6 +67,33 @@ h1{
   border: 1px solid skyblue;
   margin-bottom: 10px;
 }
+
+.product-li{
+  list-style: none;
+    display: inline-block;
+    padding: 5px;
+    width: 100px;
+    text-align: center;
+    border: 2.5px skyblue solid;
+    margin-bottom: 0;
+   
+}
+
+.update-button{
+  display: inline-block;
+    border: 3px skyblue solid;
+    padding: 4px;
+    margin-left: 5px;
+    /* color: black; */
+    width: 150px;
+    border-radius: 2px;
+}
+.product-div{
+  text-align: center;
+  margin: auto;
+  /* text-align: center; */
+  width: max-content;
+}
 .appButton{
   width: 200px;
   padding: 15px;
@@ -74,6 +101,10 @@ h1{
   border: 2px solid black;
   color: white;
 }
+.product-button{
+  color: black;
+}
+
 .footer{
   position: absolute;
   bottom: 0%;
