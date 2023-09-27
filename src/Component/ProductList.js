@@ -11,7 +11,11 @@ useEffect(()=>{
 },[]);
 
 const getProducts=async()=>{
-let result=await fetch("http://localhost:5000/products");
+let result=await fetch("http://localhost:5000/products",{
+    headers:{
+        authorization:`bearer ${JSON.parse(localStorage.getItem('token'))}`
+    }
+});
 result=await result.json();
 setProducts(result);
 }
@@ -20,7 +24,10 @@ console.warn("products",products);
 
 const deleteProduct=async (id)=>{
    let result=await  fetch(`http://localhost:5000/products/${id}`,{
-    method:"delete"
+    method:"delete",
+    headers:{
+        authorization:`bearer ${JSON.parse(localStorage.getItem('token'))}`
+    }
    })
 
    result=await result.json();
@@ -36,9 +43,31 @@ const deleteProduct=async (id)=>{
 
 }
 
+const searchHandle=async (e)=>{
+const key=e.target.value;
+let result=await fetch(`http://localhost:5000/search/${key}`,{
+    headers:{
+        authorization:`bearer ${JSON.parse(localStorage.getItem('token'))}`
+    }
+});
+
+if(key){
+    result=await result.json();
+    if(result){
+        setProducts(result);
+    }
+}else{
+    getProducts()
+}
+}
+
+
+
     return(
         <div className="product-div" >
             <h1>Product list</h1>
+
+            <input type="text" placeholder="search product" className="search-box" onChange={searchHandle}/>
             <ul>
                 <li className="product-li">S.No</li>
                 <li className="product-li">Name</li>
@@ -48,7 +77,7 @@ const deleteProduct=async (id)=>{
             </ul>
 
             {
-                products.map((item,index)=>
+               products.length>0? products.map((item,index)=>
                     <ul key={item._id}>
                     <li className="product-li">{index+1}</li>
                     <li className="product-li">{item.name}</li>
@@ -58,7 +87,7 @@ const deleteProduct=async (id)=>{
                   <button className="product-button"><Link to={"/update/"+item._id}>Update </Link></button>
                     </li>
                 </ul>   
-                )
+                ):<h1>No result found</h1>
             }
         </div>
     )

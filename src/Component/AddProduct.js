@@ -23,7 +23,10 @@ const [error,setError]=useState(false)
         method:'post',
         body:JSON.stringify({name,price,category,company,user_id}),
         headers:{
-            'Content-type':'application/json'
+            'Content-type':'application/json',
+           
+                authorization:`bearer ${JSON.parse(localStorage.getItem('token'))}`
+            
         }
        
 

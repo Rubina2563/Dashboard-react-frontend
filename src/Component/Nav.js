@@ -17,8 +17,7 @@ const logout=()=>{
             { auth? <ul className="ul-nav">
                 <li className="li-nav"><Link to="/">Product</Link></li>
                 <li className="li-nav"><Link to="/add">Add Product</Link></li>
-                <li className="li-nav"><Link to="/update">Update</Link></li>
-                <li className="li-nav"><Link to="/Profile">Profile</Link></li>
+              
                 
                  <li className="li-nav"><Link onClick={logout} to="/signup">Logout ({JSON.parse(auth).name})</Link></li>
                  </ul> 

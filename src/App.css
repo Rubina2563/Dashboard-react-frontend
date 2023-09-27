@@ -148,3 +148,12 @@ ul li a{
     transform: rotate(360deg);
   }
 }
+
+
+.search-box{
+  width: 400px;
+  height: 35px;
+  padding-left: 10px;
+  margin-top: 5px;
+  border: 2px solid skyblue;
+}

@@ -19,7 +19,11 @@ const UpdateProduct=()=>{
     
 let getProductDetails = async ()=>{
  
-    let result = await fetch(`http://localhost:5000/products/${params.id}`);
+    let result = await fetch(`http://localhost:5000/products/${params.id}`,{
+        headers:{
+            authorization:`bearer ${JSON.parse(localStorage.getItem('token'))}`
+        }
+    });
     result=await result.json();
     
     setName(result.name);
@@ -41,18 +45,22 @@ useEffect(()=>{
 
     const updateProducts= async ()=>{
         console.warn(name,price,category,company,params.id);
+        
 
         let result=await fetch(`http://localhost:5000/products/${params.id}`,{
             method: "put",
-            body: JSON.stringify({name,price,category,company}),
+            body: JSON.stringify({ name, price, category, company}),
             headers:{
-                'Context-Type':'application/json'
+                'Content-Type':'application/json',
+               
+                authorization:`bearer ${JSON.parse(localStorage.getItem('token'))}`
+                
             }
 
         });
 
         result=await result.json();
-         // console.warn(result)
+         console.warn(result)
         //  console.warn(name,price,category,company,params.id);
        
     }
